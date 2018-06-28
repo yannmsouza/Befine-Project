@@ -39,7 +39,6 @@ export default function(application){
             mongodb.ObjectId(req.params.idUser)
         ).toArray(
             (err, docs) => {
-                var routines = docs.routines
                 if (err) {
                     res.status(500).json({ error: err });
                 } else {

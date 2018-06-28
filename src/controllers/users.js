@@ -22,7 +22,6 @@ class UsersController {
 
     //Somente um Usuario
     returnUser(req, res){
-        console.log(req.params.idUser);
         global.conn.collection('users').find(mongodb.ObjectId(req.params.idUser)).toArray(
             (err, docs) => {
                 if (err) {

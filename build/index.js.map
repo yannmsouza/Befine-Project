@@ -1,0 +1,1 @@
+{"version":3,"sources":["../index.js"],"names":["app","listen","console","log"],"mappings":";;AAAA;;;;;;AAEAA,cAAIC,MAAJ,CAAW,MAAX,EAAmB,YAAM;AACrBC,YAAQC,GAAR,CAAY,6BAAZ;AACH,CAFD","file":"index.js","sourcesContent":["import app from \"./src/app\";\r\n\r\napp.listen('8080', () => {\r\n    console.log('app is running on port 8080');    \r\n}\r\n\r\n);"]}
