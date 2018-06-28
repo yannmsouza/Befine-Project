@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import mongodb from 'mongodb';
 
 
-const users = new Users();
+// const users = new Users();
 
 class UsersController {
     //Todos os Usuarios

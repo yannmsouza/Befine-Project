@@ -10,10 +10,15 @@ import multer from 'multer';
 import http from 'http';
 import path from 'path';
 import os from 'os';
-import Busboy from 'busboy';
+
 import fs from 'fs';
 
+import busboy from 'connect-busboy';
+import busboyBodyParser from 'busboy-body-parser';
+
 import users from './routes/users';
+import videos from './routes/videos';
+import routines from './routes/routines';
 import dbConnection from './config/dbConnection';
 
 
@@ -25,10 +30,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(multiparty());
 
+app.use(busboy());
+
+app.use(busboyBodyParser());
+
 app.use((req, res, next) =>{
 	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.setHeader("Access-Control-Allow-Credentials", true);
 
 	next();
@@ -50,7 +60,10 @@ app.get('/teste',  (req, res) =>  {
 });
 
 
-users(app);
 dbConnection();
+users(app);
+videos(app);
+routines(app);
+
 
 export default app;
