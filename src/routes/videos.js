@@ -66,7 +66,7 @@ export default function(application){
                 if (err) {
                     res.status(500).json({ error: err });
                 } else {
-                    console.log(docs);
+                    // console.log(docs);
                     var user = docs;
                     let us = user[0];
                     res.status('200').json({videos : us.videos});
